@@ -10,7 +10,7 @@ $u = new Usuario;
 <body>
 <div id="corpo-form-cad">
 	<h1>Cadastre-se</h1>
-	<form method="POST" action="processa.php">
+	<form method="POST">
 		<input type="text" name="nome" placeholder="Nome Completo" maxlength="45">
 		<input type="text" name="telefone" placeholder="Telefone" maxlength="30">
 		<input type="email" name="email" placeholder="Usuario" maxlength="40">
