@@ -1,7 +1,7 @@
 <?php
  Class Usuario {
 	private $pdo;  /*criando variavel para usar nas funçoes*/
-	public $msegErro = "";
+	public $msgErro = "";
   	public function conectar($bdnome, $host, $usuario, $senha)
   	{
   		global $pdo;
@@ -26,7 +26,7 @@
   		else
   		{
   			//caso nao tenha
-  			$sql = $pdo->prepare("insert into usuario (nome, telefone, email, senha) values (:n, ;t, :e,:s");
+  			$sql = $pdo->prepare("insert into usuario (nome, telefone, email, senha) values (:n, :t, :e,:s");
 	  		$sql->bindValue(":n", $nome);
 	  		$sql->bindValue(":t", $telefone);
 	  		$sql->bindValue(":e", $email);
