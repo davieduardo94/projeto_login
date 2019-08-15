@@ -2,12 +2,13 @@
  Class Usuario {
 	private $pdo;  /*criando variavel para usar nas funçoes*/
 	public $msgErro = "";
-  	public function conectar($bdnome, $host, $usuario, $senha)
+  	public function conectar($dbnome, $host, $usuario, $senha)
   	{
   		global $pdo;
-  		try 
+      global $msgErro;
+  		try
   		{
-  			$pdo = new PDO("mysql:dbname=".$bdnome.";host=".$host, $usuario, $senha);
+  			$pdo = new PDO("mysql:dbname=".$dbnome.";host=".$host,$usuario,$senha);
   		} catch (PDOException $e) {
   			$msgErro - $e->getMessage(); /*pega a mensagem de erro do php e joga na variavel msegErro e mostra pro usuario.*/
   		}
@@ -15,8 +16,9 @@
   	public function cadastrar($nome, $telefone, $email, $senha)
   	{
   		global $pdo;
+      global $msgErro;
   		//verificando se existe usuario cadastrado.
-  		$sql = $pdo->prepare("select id from usuario where email= :e"); //pega o id do usuario buscando pelo emial preenchido no cadastro
+  		$sql = $pdo->prepare("SELECT id FROM usuarios WHERE email=:e"); //pega o id do usuario buscando pelo emial preenchido no cadastro
   		$sql->bindValue(":e", $email);  //substitui o :e pelo email preenchido no cadastro
   		$sql->execute();
   		if($sql->rowCount()>0) //verificando houve resposta na consulta
@@ -26,7 +28,7 @@
   		else
   		{
   			//caso nao tenha
-  			$sql = $pdo->prepare("insert into usuario (nome, telefone, email, senha) values (:n, :t, :e,:s");
+  			$sql = $pdo->prepare("INSERT INTO usuarios (nome, telefone, email, senha) VALUES (:n, :t, :e,:s)");
 	  		$sql->bindValue(":n", $nome);
 	  		$sql->bindValue(":t", $telefone);
 	  		$sql->bindValue(":e", $email);
@@ -39,8 +41,9 @@
   	public function logar($email, $senha)
   	{
   		global $pdo;
+      global $msgErro;
   		/*verificar se o email e senha estao cadastrados, se sim*/
-  		$sql= $pdo->prepare("select id from usuarios where email = :e and senha = :s");
+  		$sql= $pdo->prepare("SELECT id FROM usuarios WHERE email=:e AND senha=:s");
   		$sql->bindValue(":e", $email);
   		$sql->bindValue(":s", md5($senha));
   		$sql->execute();
@@ -59,8 +62,3 @@
   	}
 }
 ?>
-
-
-
-
-
