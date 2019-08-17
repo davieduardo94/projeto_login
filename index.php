@@ -54,7 +54,7 @@
 		}
 		else
 		{
-      ?>
+      			?>
 			<div class="msg_erro">
 				Preencha todos os campos!
 			</div>
