@@ -1,6 +1,8 @@
 <?php
- require_once 'CLASSES/usuarios.php';
- $u = new Usuario;
+  require_once 'classes/usuarios.php';
+  $u = new Usuario;
+  ini_set("error_log", "D:/xampp/htdocs/ProjetoPHP/php-error.log");
+  error_log( "POST: " . print_r($_POST, true) );
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,8 +15,8 @@
 <div id="corpo-form">
 	<h1>Entrar</h1>
 	<form method="POST">
-		<input type="email" placeholder="Usuario">
-		<input type="password" placeholder="Senha">
+		<input type="email" placeholder="Usuario" name='email'>
+		<input type="password" placeholder="Senha" name='senha'>
 		<input type="submit" value="ACESSAR" class="entrar">
 		<a href="cadastrar.php">Ainda não é inscrito? <strong>Cadastre-se</strong></a>
 	</form>
@@ -28,7 +30,7 @@
 		if(!empty($email) && !empty($senha))
 		{
 			$u->conectar("projeto_login","localhost","root",""); //conectando ao banco
-			if($u->msgErro == "") // caso a mensagem esteja vazia, login ok
+			if($u->msgErro=="") // caso a mensagem esteja vazia, login ok
 			{
 				if ($u->logar($email, $senha))
 				{
@@ -54,7 +56,7 @@
 		}
 		else
 		{
-			?>
+      ?>
 			<div class="msg_erro">
 				Preencha todos os campos!
 			</div>
