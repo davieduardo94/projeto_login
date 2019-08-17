@@ -1,8 +1,6 @@
 <?php
   require_once 'classes/usuarios.php';
   $u = new Usuario;
-  ini_set("error_log", "D:/xampp/htdocs/ProjetoPHP/php-error.log");
-  error_log( "POST: " . print_r($_POST, true) );
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
