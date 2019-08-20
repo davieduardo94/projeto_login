@@ -23,7 +23,7 @@ input{
 }
 input[type=submit]{
 	height: 50px;
-	width: 440px;
+	width: 400px;
 	background-color: #ff0066;
 	cursor: pointer;
 }
