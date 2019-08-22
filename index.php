@@ -27,7 +27,7 @@
 		//verificando se todos os campos nao estao vazios
 		if(!empty($email) && !empty($senha))
 		{
-			$u->conectar("projeto_login","localhost","root",""); //conectando ao banco
+			$u->conectar("sistem_login","localhost","root",""); //conectando ao banco
 			if($u->msgErro=="") // caso a mensagem esteja vazia, login ok
 			{
 				if ($u->logar($email, $senha))
