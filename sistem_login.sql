@@ -1,5 +1,3 @@
--- Estrutura da tabela `usuarios`
-
 CREATE TABLE usuario ( 
 id_usuario int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 nome varchar(30) DEFAULT NULL, 

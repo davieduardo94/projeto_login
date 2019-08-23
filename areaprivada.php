@@ -1,7 +1,7 @@
 <?php
 //verificando se a sessao existe e evitando acesso indevido.
   session_start();
-  if (!isset($_SESSION['id'])) {  //se não está definido o id do usuario na sessao
+  if (!isset($_SESSION['id_usuario'])) {  //se não está definido o id do usuario na sessao
     header("location:index.php");
     exit;
   }
