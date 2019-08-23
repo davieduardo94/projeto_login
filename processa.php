@@ -12,12 +12,12 @@ if(isset($_POST['nome']))
 	//verificando se todos os campos nao estao vazios
 	if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($senha) && !empty($confirmarSenha)) 
 	{
-		$u->conectar("projeto_login","localhost","root","");
+		$u->conectar("projeto_login","localhost","root",""); //seta as configs do db//set db config
 		if ($u->msgErro == "") //conectado normalmente;
 		{
 			if ($senha == $confirmarSenha) 
 			{
-				if ($u->cadastrar($nome, $telefone, $email, $senha)) 
+				if ($u->cadastrar($nome, $telefone, $email, $senha))  //seta as configs do db
 				{
 					echo "Cadastro realizado com sucesso!";
 				}
