@@ -17,7 +17,7 @@ if(isset($_POST['nome']))
 		{
 			if ($senha == $confirmarSenha) 
 			{
-				if ($u->cadastrar($nome, $telefone, $email, $senha)) 
+				if ($u->cadastrar($nome, $telefone, $email, $senha))  //enviando parametros para funcao
 				{
 					echo "Cadastro realizado com sucesso!";
 				}
