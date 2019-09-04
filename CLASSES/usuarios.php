@@ -5,7 +5,7 @@
   	public function conectar($dbnome, $host, $usuario, $senha)
   	{
   		global $pdo;
-      global $msgErro;
+      		global $msgErro;
   		try
   		{
   			$pdo = new PDO("mysql:dbname=".$dbnome.";host=".$host,$usuario,$senha);
@@ -16,7 +16,7 @@
   	public function cadastrar($nome, $telefone, $email, $senha)
   	{
   		global $pdo;
-      global $msgErro;
+      		global $msgErro;
   		//verificando se existe usuario cadastrado.
   		$sql = $pdo->prepare("SELECT id FROM usuarios WHERE email=:e"); //pega o id do usuario buscando pelo emial preenchido no cadastro
   		$sql->bindValue(":e", $email);  //substitui o :e pelo email preenchido no cadastro
@@ -41,7 +41,7 @@
   	public function logar($email, $senha)
   	{
   		global $pdo;
-      global $msgErro;
+      		global $msgErro;
   		/*verificar se o email e senha estao cadastrados, se sim*/
   		$sql= $pdo->prepare("SELECT id FROM usuarios WHERE email=:e AND senha=:s");
   		$sql->bindValue(":e", $email);
