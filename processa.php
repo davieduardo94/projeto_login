@@ -17,7 +17,7 @@ if(isset($_POST['nome']))
 		{
 			if ($senha == $confirmarSenha) 
 			{
-				if ($u->cadastrar($nome, $telefone, $email, $senha))  //seta as configs do db
+				if ($u->cadastrar($nome, $telefone, $email, $senha))  //Enviando variaveis para o banco
 				{
 					echo "Cadastro realizado com sucesso!";
 				}
